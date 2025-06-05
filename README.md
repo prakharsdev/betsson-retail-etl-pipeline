@@ -18,6 +18,9 @@ I built this end-to-end ETL pipeline from scratch to address the data engineerin
 
 ---
 
+## Full Project Demo Video
+[![Demo Video](![image](https://github.com/user-attachments/assets/44a8941d-a8b3-469d-9ae5-d795477e0f7d)](https://youtu.be/D7Q6a0ElxVQ)
+
 ## Folder Structure
 
 ```
