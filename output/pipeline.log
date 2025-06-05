@@ -1,0 +1,28 @@
+2025-06-05 21:43:25,290 [INFO] Loading raw data...
+2025-06-05 21:43:25,975 [INFO] Raw data loaded with shape: (525461, 8) in 0.68s
+2025-06-05 21:43:25,975 [INFO] Cleaning data...
+2025-06-05 21:43:26,469 [INFO] Data cleaned. Rows before: 525461, after: 400894 in 0.49s
+2025-06-05 21:43:26,469 [INFO] Checking for abnormalities (raw vs clean)...
+2025-06-05 21:43:27,212 [WARNING] [RAW] Rows with missing Customer ID were removed.
+2025-06-05 21:43:27,212 [WARNING] [RAW] Rows with missing Price were removed.
+2025-06-05 21:43:27,212 [WARNING] [RAW] Rows with missing Description were removed.
+2025-06-05 21:43:27,227 [WARNING] [RAW] Exact duplicate rows were removed.
+2025-06-05 21:43:27,227 [WARNING] [RAW] Rows with suspicious descriptions ('?', 'UNKNOWN', or blank) were removed.
+2025-06-05 21:43:27,228 [WARNING] [RAW] Some rows have Quantity > 1000 - flagged as potential outliers.
+2025-06-05 21:43:27,228 [WARNING] [RAW] Some rows have Price > 1000 - flagged as potential outliers.
+2025-06-05 21:43:27,228 [WARNING] [RAW] Duplicate (Invoice, StockCode) combinations found - retained but logged.
+2025-06-05 21:43:27,228 [WARNING] [RAW] System StockCodes like POST, ADJUST, CHECK found - retained but excluded from revenue.
+2025-06-05 21:43:27,228 [WARNING] [RAW] Some Customer IDs appear in multiple countries - retained as possible B2B cases.
+2025-06-05 21:43:27,228 [WARNING] [CLEAN] Some rows have Quantity > 1000 - flagged as potential outliers.
+2025-06-05 21:43:27,228 [WARNING] [CLEAN] Some rows have Price > 1000 - flagged as potential outliers.
+2025-06-05 21:43:27,228 [WARNING] [CLEAN] Duplicate (Invoice, StockCode) combinations found - retained but logged.
+2025-06-05 21:43:27,228 [WARNING] [CLEAN] System StockCodes like POST, ADJUST, CHECK found - retained but excluded from revenue.
+2025-06-05 21:43:27,228 [WARNING] [CLEAN] Some Customer IDs appear in multiple countries - retained as possible B2B cases.
+2025-06-05 21:43:27,229 [INFO] Abnormality logging completed in 0.76s
+2025-06-05 21:43:27,229 [INFO] Aggregating data for reporting...
+2025-06-05 21:43:27,329 [INFO] Aggregation completed in 0.10s
+2025-06-05 21:43:27,331 [INFO] Building data warehouse (star schema) tables...
+2025-06-05 21:43:28,968 [INFO] Star schema tables built and saved in 1.64s
+2025-06-05 21:43:28,968 [INFO] Saving output files...
+2025-06-05 21:43:30,616 [INFO] Output files saved in 1.65s
+2025-06-05 21:43:30,616 [INFO] ETL pipeline completed successfully in 5.33s

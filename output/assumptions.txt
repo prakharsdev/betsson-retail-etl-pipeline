@@ -1,0 +1,22 @@
+Assumptions & Abnormalities:
+
+Issues Detected in Raw Data:
+- Rows with missing Customer ID were removed.
+- Rows with missing Price were removed.
+- Rows with missing Description were removed.
+- Rows with Quantity ≤ 0 were removed.
+- Rows with Price ≤ 0 were removed.
+- Exact duplicate rows were removed.
+- Rows with suspicious descriptions ('?', 'UNKNOWN', or blank) were removed.
+- Some rows have Quantity > 1000 - flagged as potential outliers.
+- Some rows have Price > 1000 - flagged as potential outliers.
+- Duplicate (Invoice, StockCode) combinations found - retained but logged.
+- System StockCodes like POST, ADJUST, CHECK found - retained but excluded from revenue.
+- Some Customer IDs appear in multiple countries - retained as possible B2B cases.
+
+ Issues Still Present After Cleaning:
+- Some rows have Quantity > 1000 - flagged as potential outliers.
+- Some rows have Price > 1000 - flagged as potential outliers.
+- Duplicate (Invoice, StockCode) combinations found - retained but logged.
+- System StockCodes like POST, ADJUST, CHECK found - retained but excluded from revenue.
+- Some Customer IDs appear in multiple countries - retained as possible B2B cases.
