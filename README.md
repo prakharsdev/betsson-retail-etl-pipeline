@@ -213,15 +213,25 @@ This step ensured my downstream logic was both accurate and relevant for busines
 
 ### Testing Strategy
 
-By using `pytest`, I enforce confidence in every transformation:
+To ensure trust in every transformation, I used `pytest` to validate both business logic and data model integrity.
 
-* I validate foreign key consistency across the fact and dimension tables.
-* I confirm that data cleaning removes bad rows without affecting valid entries.
-* I check that my assumptions (e.g., system StockCodes having 0 revenue) hold true post-cleaning.
+Since the dataset is relatively small (\~500k rows), I decided to run tests across the **entire dataset** instead of just sampling. This gives full coverage with no performance cost at this scale. The unit tests cover:
 
-This makes the pipeline safe to use in automation or CI/CD contexts.
+* Cleaning logic: confirm invalid or null rows are removed correctly
+* Revenue calculation: verify `TotalPrice = Quantity * Price`
+* Star schema joins: ensure all foreign keys in the fact table are valid
+* Assumption checks: e.g., suspicious `StockCodes` like `POST` are retained and logged, not dropped
+* Data types: `InvoiceDate` is properly parsed as datetime
+* Edge handling: large quantities/prices are preserved, not silently removed
 
-NB! Because the dataset is small (~500k rows), I ran full checks in my unit tests that includes cleaning, revenue logic, and FK relationships. But in a real production setup with millions of rows, I’d sample key slices, validate aggregated outputs, or use mocks and fixture stubs to keep tests fast and reliable.
+If this were a large production dataset, I would’ve taken a different approach to keep the tests fast and maintainable:
+
+* Sampled representative data slices for cleaning and join validation
+* Validated aggregates (e.g., country-wise revenue sums) instead of full-row checks
+* Used **mocks or fixture stubs** to isolate transformation logic and unit-test them in isolation
+
+This hybrid strategy helps ensure both **correctness** and **scalability** depending on data volume.
+
 
 ### Logging
 
