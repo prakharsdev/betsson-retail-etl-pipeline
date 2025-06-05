@@ -278,14 +278,7 @@ NB! I tried to clean what was clearly broken, and flag what looked suspicious wi
 
 ## ERD Diagram (Star Schema)
 
-```
-dim_product       dim_customer        dim_date
-   |                  |                   |
-   |                  |                   |
-   +--------+---------+--------+----------+
-                            |
-                       fact_sales
-```
+![ERD_diagram](https://github.com/user-attachments/assets/c8347cc2-07f9-4bf8-9cca-d468aec6e4b4)
 
 **fact\_sales.csv**
 
